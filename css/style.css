@@ -236,8 +236,6 @@ section { padding: 6rem 2.5rem; }
 
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.about-visual { width: 50%; margin-bottom: 1.8rem; border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 50px -14px rgba(13,13,13,0.2); }
-.about-visual img { width: 100%; height: auto; display: block; }
 .values-list { display: flex; flex-direction: column; gap: 12px; }
 .value-item {
   display: flex; gap: 14px; align-items: flex-start;
