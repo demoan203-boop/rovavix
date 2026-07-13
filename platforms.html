@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platforms — ROVAVIX</title>
+  <meta name="description" content="ROVAVIX is an AI agent company building platforms that connect people with truth, health, opportunity, and accessibility." />
+  <link rel="icon" type="image/png" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-mark.png" class="logo-mark" alt="" /><span class="logo-text">ROVA<span class="logo-accent">VIX</span></span></a>
+  <ul class="nav-links">
+    <li><a href="about.html"     class="t" data-key="nav_about">About</a></li>
+    <li><a href="platforms.html" class="t" data-key="nav_platforms">Platforms</a></li>
+    <li><a href="vision.html"    class="t" data-key="nav_vision">Vision</a></li>
+    <li><a href="contact.html"   class="t" data-key="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-select-wrap">
+      <button class="lang-select-btn" id="langBtn" onclick="toggleDropdown()">
+        <span class="lang-flag" id="currentFlag">🇺🇸</span>
+        <span id="currentLangName">English</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-option active" onclick="setLang('en')"><span class="lang-flag">🇺🇸</span><span class="lang-option-name">English</span><span class="lang-option-native">English</span></button>
+        <button class="lang-option"        onclick="setLang('ko')"><span class="lang-flag">🇰🇷</span><span class="lang-option-name">Korean</span><span class="lang-option-native">한국어</span></button>
+        <button class="lang-option"        onclick="setLang('ja')"><span class="lang-flag">🇯🇵</span><span class="lang-option-name">Japanese</span><span class="lang-option-native">日本語</span></button>
+        <button class="lang-option"        onclick="setLang('zh')"><span class="lang-flag">🇨🇳</span><span class="lang-option-name">Chinese</span><span class="lang-option-native">中文</span></button>
+        <button class="lang-option"        onclick="setLang('es')"><span class="lang-flag">🇪🇸</span><span class="lang-option-name">Spanish</span><span class="lang-option-native">Español</span></button>
+        <button class="lang-option"        onclick="setLang('de')"><span class="lang-flag">🇩🇪</span><span class="lang-option-name">German</span><span class="lang-option-native">Deutsch</span></button>
+      </div>
+    </div>
+    <a href="mailto:demoan203@gmail.com" class="nav-cta t" data-key="nav_cta">Get in Touch</a>
+  </div>
+</nav>
+
+<section class="platforms-section" id="platforms" style="padding-top:9rem;">
+  <div class="section-inner">
+    <div class="platforms-header">
+      <div>
+        <div class="section-tag t" data-key="plat_tag">Our Platforms</div>
+        <div class="section-title t" data-key="plat_title">Four platforms.<br>One mission.</div>
+      </div>
+      <p class="section-desc t" data-key="plat_desc">Each platform is independent yet united by a single belief — AI should make life more truthful, healthier, fairer, and more accessible.</p>
+    </div>
+    <div class="platforms-grid">
+      <a class="platform-card" href="https://www.aiva.run" target="_blank" rel="noopener">
+        <div class="platform-icon" style="background:#e8f0fe;">🔍</div>
+        <span class="platform-status status-live t" data-key="status_live">Live</span>
+        <h3>AIVA Platform</h3>
+        <p class="t" data-key="aiva_desc">As AI-generated content floods the internet, AIVA empowers users to distinguish reality from fabrication — building AI literacy and protecting people from misinformation.</p>
+        <div class="platform-arrow t" data-key="learn_more">Learn more →</div>
+      </a>
+      <a class="platform-card" href="#">
+        <div class="platform-icon" style="background:#d1fae5;">💚</div>
+        <span class="platform-status status-dev t" data-key="status_dev">In Development</span>
+        <h3>LifeLink</h3>
+        <p class="t" data-key="lifelink_desc">A lifestyle platform that motivates continuous healthy behaviors through engaging challenges and community. Building lasting habits, one step at a time.</p>
+        <div class="platform-arrow t" data-key="learn_more">Learn more →</div>
+      </a>
+      <a class="platform-card" href="https://www.spotwork.run" target="_blank" rel="noopener">
+        <div class="platform-icon" style="background:#fef3c7;">👥</div>
+        <span class="platform-status status-dev t" data-key="status_dev">In Development</span>
+        <h3>SpotWork</h3>
+        <p class="t" data-key="spotwork_desc">Korea's aging population holds untapped potential. SpotWork connects experienced senior workers with companies seeking flexible, short-term talent — redefining the value of experience.</p>
+        <div class="platform-arrow t" data-key="learn_more">Learn more →</div>
+      </a>
+      <a class="platform-card" href="#">
+        <div class="platform-icon" style="background:#ede9fe;">🎙️</div>
+        <span class="platform-status status-dev t" data-key="status_dev">In Development</span>
+        <h3>Voice Recognition AI System</h3>
+        <p class="t" data-key="jarvis_desc">A voice-powered AI tool designed to enhance digital accessibility for the elderly and people with disabilities — ensuring no one is left behind in the AI era.</p>
+        <div class="platform-arrow t" data-key="learn_more">Learn more →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="images/logo-mark.png" class="logo-mark" alt="" /><span class="logo-text">ROVA<span class="logo-accent">VIX</span></span></div>
+  <div class="footer-links">
+    <a href="platforms.html" class="t" data-key="nav_platforms">Platforms</a>
+    <a href="about.html"     class="t" data-key="nav_about">About</a>
+    <a href="contact.html"   class="t" data-key="nav_contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 ROVAVIX. All rights reserved.</div>
+</footer>
+
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — ROVAVIX</title>
+  <meta name="description" content="ROVAVIX is an AI agent company building platforms that connect people with truth, health, opportunity, and accessibility." />
+  <link rel="icon" type="image/png" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-mark.png" class="logo-mark" alt="" /><span class="logo-text">ROVA<span class="logo-accent">VIX</span></span></a>
+  <ul class="nav-links">
+    <li><a href="about.html"     class="t" data-key="nav_about">About</a></li>
+    <li><a href="platforms.html" class="t" data-key="nav_platforms">Platforms</a></li>
+    <li><a href="vision.html"    class="t" data-key="nav_vision">Vision</a></li>
+    <li><a href="contact.html"   class="t" data-key="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-select-wrap">
+      <button class="lang-select-btn" id="langBtn" onclick="toggleDropdown()">
+        <span class="lang-flag" id="currentFlag">🇺🇸</span>
+        <span id="currentLangName">English</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-option active" onclick="setLang('en')"><span class="lang-flag">🇺🇸</span><span class="lang-option-name">English</span><span class="lang-option-native">English</span></button>
+        <button class="lang-option"        onclick="setLang('ko')"><span class="lang-flag">🇰🇷</span><span class="lang-option-name">Korean</span><span class="lang-option-native">한국어</span></button>
+        <button class="lang-option"        onclick="setLang('ja')"><span class="lang-flag">🇯🇵</span><span class="lang-option-name">Japanese</span><span class="lang-option-native">日本語</span></button>
+        <button class="lang-option"        onclick="setLang('zh')"><span class="lang-flag">🇨🇳</span><span class="lang-option-name">Chinese</span><span class="lang-option-native">中文</span></button>
+        <button class="lang-option"        onclick="setLang('es')"><span class="lang-flag">🇪🇸</span><span class="lang-option-name">Spanish</span><span class="lang-option-native">Español</span></button>
+        <button class="lang-option"        onclick="setLang('de')"><span class="lang-flag">🇩🇪</span><span class="lang-option-name">German</span><span class="lang-option-native">Deutsch</span></button>
+      </div>
+    </div>
+    <a href="mailto:demoan203@gmail.com" class="nav-cta t" data-key="nav_cta">Get in Touch</a>
+  </div>
+</nav>
+
+<section class="contact-section" id="contact" style="padding-top:9rem;">
+  <div class="section-inner">
+    <div class="section-tag t" data-key="contact_tag">Get In Touch</div>
+    <h2 class="section-title t" data-key="contact_title">Let's build the future together.</h2>
+    <p class="t" data-key="contact_desc">We welcome investors, partners, and collaborators who share our vision of a more human AI world.</p>
+    <a href="mailto:demoan203@gmail.com" class="contact-email-btn">demoan203@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="images/logo-mark.png" class="logo-mark" alt="" /><span class="logo-text">ROVA<span class="logo-accent">VIX</span></span></div>
+  <div class="footer-links">
+    <a href="platforms.html" class="t" data-key="nav_platforms">Platforms</a>
+    <a href="about.html"     class="t" data-key="nav_about">About</a>
+    <a href="contact.html"   class="t" data-key="nav_contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 ROVAVIX. All rights reserved.</div>
+</footer>
+
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
