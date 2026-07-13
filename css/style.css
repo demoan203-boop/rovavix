@@ -234,6 +234,21 @@ section { padding: 6rem 2.5rem; }
 .platform-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
 .platform-arrow { font-size: 13px; color: var(--blue); font-weight: 500; }
 
+/* PLATFORM DETAIL */
+.platform-detail-hero { max-width: 640px; margin: 0 auto; text-align: center; }
+.platform-detail-icon {
+  width: 60px; height: 60px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin: 0 auto 1.2rem;
+}
+.platform-detail-hero .section-title { margin: 0.8rem 0 1.2rem; }
+.platform-detail-hero .section-desc { margin: 0 auto 2rem; max-width: 560px; }
+.platform-detail-visual {
+  max-width: 900px; margin: 0 auto; border-radius: var(--radius);
+  overflow: hidden; box-shadow: 0 20px 50px -14px rgba(13,13,13,0.2);
+}
+.platform-detail-visual img { width: 100%; height: auto; display: block; }
+
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 .values-list { display: flex; flex-direction: column; gap: 12px; }
