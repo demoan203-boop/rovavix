@@ -48,7 +48,7 @@ nav {
 }
 .nav-logo .logo-accent { color: var(--blue); }
 .logo-mark { height: 30px; width: auto; border-radius: 8px; display: block; }
-.logo-full-dark { height: 42px; width: auto; border-radius: 8px; display: block; }
+.logo-full-dark { height: 30px; width: auto; border-radius: 0; display: block; }
 .nav-links { display: flex; gap: 1.6rem; list-style: none; }
 .nav-links a {
   font-size: 13px; color: var(--text-muted);
