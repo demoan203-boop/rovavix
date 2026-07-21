@@ -47,7 +47,7 @@ nav {
   display: inline-flex; align-items: center; gap: 0;
 }
 .nav-logo .logo-accent { color: var(--blue); }
-.logo-r-icon { height: 26px; width: auto; display: block; margin-right: -3px; }
+.logo-r-icon { height: 26px; width: auto; display: block; margin-right: 3px; }
 .nav-links { display: flex; gap: 1.6rem; list-style: none; }
 .nav-links a {
   font-size: 13px; color: var(--text-muted);
