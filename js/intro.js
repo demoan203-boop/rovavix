@@ -11,6 +11,8 @@
   var canvas = document.getElementById('introCanvas');
   var ctx = canvas.getContext('2d');
   var enterBtn = document.getElementById('introEnterBtn');
+  var aiLetterEls = Array.prototype.slice.call(document.querySelectorAll('.intro-ai-letter'));
+  var letters = [];
 
   body.classList.add('intro-active');
 
@@ -34,6 +36,14 @@
     canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     buildParticles();
+    computeLetterCenters();
+  }
+
+  function computeLetterCenters() {
+    letters = aiLetterEls.map(function (el) {
+      var r = el.getBoundingClientRect();
+      return { el: el, cx: r.left + r.width / 2, cy: r.top + r.height / 2 };
+    });
   }
 
   function buildParticles() {
@@ -79,6 +89,13 @@
 
   var REPEL_RADIUS = 140;
   var REPEL_STRENGTH = 46;
+  var WAVE_RANGE = 260;
+  var WAVE_AMPLITUDE = 30;
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(computeLetterCenters);
+  }
+  window.setTimeout(computeLetterCenters, 400);
 
   function tick() {
     t += 0.016;
@@ -112,6 +129,16 @@
       ctx.fillText(p.char, p.x, p.y);
     }
     ctx.globalAlpha = 1;
+
+    for (var j = 0; j < letters.length; j++) {
+      var l = letters[j];
+      var ldx = l.cx - curX, ldy = l.cy - curY;
+      var ldist = Math.sqrt(ldx * ldx + ldy * ldy);
+      var falloff = Math.max(0, 1 - ldist / WAVE_RANGE);
+      var lift = falloff * falloff * -WAVE_AMPLITUDE;
+      var scale = 1 + falloff * 0.08;
+      l.el.style.transform = 'translateY(' + lift.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
+    }
 
     raf = requestAnimationFrame(tick);
   }

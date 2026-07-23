@@ -34,9 +34,15 @@ body.intro-active { overflow: hidden; height: 100vh; }
   font-family: 'Syne', sans-serif; font-weight: 700;
   font-size: clamp(2.6rem, 11vw, 7rem);
   line-height: 0.94; letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 10%, #9db8f0 45%, #1a56db 92%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: introAiIn 1.1s cubic-bezier(.16,1,.3,1) both, introAiPulse 4.5s ease-in-out 1.1s infinite;
+}
+.intro-ai-letter {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 10%, #9db8f0 45%, #1a56db 92%);
+  background-size: 700% 100%;
+  background-position-x: calc(var(--i) * (100% / 6));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  will-change: transform;
 }
 
 .intro-enter {
