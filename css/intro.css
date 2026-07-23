@@ -13,23 +13,10 @@ body.intro-active { overflow: hidden; height: 100vh; }
 .intro-glow {
   position: absolute; width: 50vmax; height: 50vmax; border-radius: 50%;
   left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(26,86,219,0.44) 0%, rgba(26,86,219,0.16) 35%, transparent 70%);
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 9%),
+    radial-gradient(circle, rgba(26,86,219,0.46) 0%, rgba(26,86,219,0.16) 35%, transparent 70%);
   filter: blur(6px);
-  pointer-events: none; will-change: left, top; z-index: 0;
-}
-.intro-glow-2 {
-  position: absolute; width: 30vmax; height: 30vmax; border-radius: 50%;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(157,184,240,0.34) 0%, rgba(157,184,240,0.1) 40%, transparent 70%);
-  filter: blur(4px);
-  pointer-events: none; will-change: left, top; z-index: 0;
-}
-.intro-cursor-core {
-  position: absolute; width: 13vmax; height: 13vmax; border-radius: 50%;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,255,255,0.65) 0%, rgba(157,184,240,0.4) 32%, transparent 68%);
-  filter: blur(2px);
-  mix-blend-mode: screen;
   pointer-events: none; will-change: left, top; z-index: 0;
 }
 
