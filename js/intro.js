@@ -8,16 +8,55 @@
   }
 
   var body = document.body;
-  var glow1 = document.getElementById('introGlow1');
-  var glow2 = document.getElementById('introGlow2');
+  var canvas = document.getElementById('introCanvas');
+  var ctx = canvas.getContext('2d');
   var enterBtn = document.getElementById('introEnterBtn');
 
   body.classList.add('intro-active');
 
-  var targetX = window.innerWidth / 2;
-  var targetY = window.innerHeight / 2;
+  var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  var ACCENTS = ['#ff5c5c', '#3ddc84', '#4d8dff'];
+  var particles = [];
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildParticles();
+  }
+
+  function buildParticles() {
+    var count = Math.floor((W * H) / 9000);
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      var baseX = Math.random() * W;
+      var baseY = Math.random() * H;
+      var colorRoll = Math.random();
+      particles.push({
+        baseX: baseX, baseY: baseY,
+        x: baseX, y: baseY,
+        char: CHARS[Math.floor(Math.random() * CHARS.length)],
+        size: 10 + Math.random() * 11,
+        alpha: 0.08 + Math.random() * 0.24,
+        color: colorRoll < 0.05 ? ACCENTS[0] : colorRoll < 0.10 ? ACCENTS[1] : colorRoll < 0.16 ? ACCENTS[2] : '#ffffff',
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.25 + Math.random() * 0.35,
+        drift: 10 + Math.random() * 16
+      });
+    }
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  var targetX = W / 2, targetY = H / 2;
   var curX = targetX, curY = targetY;
-  var curX2 = targetX, curY2 = targetY;
   var idle = true;
   var t = 0;
   var raf;
@@ -32,21 +71,41 @@
     if (e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
   }, { passive: true });
 
-  function tick() {
-    t += 0.008;
-    if (idle) {
-      targetX = window.innerWidth / 2 + Math.sin(t) * window.innerWidth * 0.2;
-      targetY = window.innerHeight / 2 + Math.cos(t * 0.8) * window.innerHeight * 0.15;
-    }
-    curX += (targetX - curX) * 0.07;
-    curY += (targetY - curY) * 0.07;
-    curX2 += (targetX - curX2) * 0.035;
-    curY2 += (targetY - curY2) * 0.035;
+  var REPEL_RADIUS = 140;
+  var REPEL_STRENGTH = 46;
 
-    glow1.style.left = curX + 'px';
-    glow1.style.top = curY + 'px';
-    glow2.style.left = (window.innerWidth - curX2) + 'px';
-    glow2.style.top = curY2 + 'px';
+  function tick() {
+    t += 0.016;
+    if (idle) {
+      targetX = W / 2 + Math.sin(t * 0.5) * W * 0.22;
+      targetY = H / 2 + Math.cos(t * 0.4) * H * 0.18;
+    }
+    curX += (targetX - curX) * 0.08;
+    curY += (targetY - curY) * 0.08;
+
+    ctx.clearRect(0, 0, W, H);
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      var fx = p.baseX + Math.sin(t * p.speed + p.phase) * p.drift;
+      var fy = p.baseY + Math.cos(t * p.speed * 0.8 + p.phase) * p.drift;
+
+      var dx = fx - curX, dy = fy - curY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < REPEL_RADIUS && dist > 0.01) {
+        var force = (1 - dist / REPEL_RADIUS) * REPEL_STRENGTH;
+        fx += (dx / dist) * force;
+        fy += (dy / dist) * force;
+      }
+      p.x += (fx - p.x) * 0.15;
+      p.y += (fy - p.y) * 0.15;
+
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.font = p.size + 'px "DM Sans", monospace';
+      ctx.fillText(p.char, p.x, p.y);
+    }
+    ctx.globalAlpha = 1;
 
     raf = requestAnimationFrame(tick);
   }
@@ -57,6 +116,7 @@
     body.classList.remove('intro-active');
     sessionStorage.setItem('rovavixIntroSeen', '1');
     cancelAnimationFrame(raf);
+    window.removeEventListener('resize', resize);
     window.setTimeout(function () { overlay.remove(); }, 800);
   }
 

@@ -10,29 +10,9 @@ body.intro-active { overflow: hidden; height: 100vh; }
 }
 .intro-overlay.intro-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-.intro-grid {
-  position: absolute; inset: -2px;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 46px 46px;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 78%);
-  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 78%);
-}
-
-.intro-glow {
-  position: absolute; width: 56vmax; height: 56vmax; border-radius: 50%;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(26,86,219,0.38) 0%, rgba(26,86,219,0.14) 35%, transparent 70%);
-  filter: blur(6px);
-  pointer-events: none; will-change: left, top;
-}
-.intro-glow-2 {
-  position: absolute; width: 34vmax; height: 34vmax; border-radius: 50%;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(157,184,240,0.30) 0%, rgba(157,184,240,0.08) 40%, transparent 70%);
-  filter: blur(4px);
-  pointer-events: none; will-change: left, top;
+.intro-canvas {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; display: block;
 }
 
 .intro-logo {
