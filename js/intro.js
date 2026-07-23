@@ -15,6 +15,11 @@
   body.classList.add('intro-active');
 
   var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  var WORDS = ['AI', 'DATA', 'NEURAL', 'AGENT', 'LOGIC', 'MODEL', 'LEARN', 'VISION',
+    'SIGNAL', 'PATTERN', 'NETWORK', 'DEEP', 'TRAIN', 'PREDICT', 'INSIGHT', 'AUTOMATE',
+    'MACHINE', 'COGNITION', 'ADAPT', 'SCALE', 'FUTURE', 'THINK', 'SENSE', 'TRUTH',
+    'CONNECT', 'PROCESS', 'COMPUTE', 'REASON', 'GENERATE', 'OPTIMIZE', 'ALGORITHM',
+    'INTELLIGENCE', 'ROVAVIX'];
   var ACCENTS = ['#ff5c5c', '#3ddc84', '#4d8dff'];
   var particles = [];
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -32,22 +37,23 @@
   }
 
   function buildParticles() {
-    var count = Math.floor((W * H) / 9000);
+    var count = Math.floor((W * H) / 1100);
     particles = [];
     for (var i = 0; i < count; i++) {
       var baseX = Math.random() * W;
       var baseY = Math.random() * H;
       var colorRoll = Math.random();
+      var isWord = Math.random() < 0.32;
       particles.push({
         baseX: baseX, baseY: baseY,
         x: baseX, y: baseY,
-        char: CHARS[Math.floor(Math.random() * CHARS.length)],
-        size: 10 + Math.random() * 11,
-        alpha: 0.08 + Math.random() * 0.24,
-        color: colorRoll < 0.05 ? ACCENTS[0] : colorRoll < 0.10 ? ACCENTS[1] : colorRoll < 0.16 ? ACCENTS[2] : '#ffffff',
+        char: isWord ? WORDS[Math.floor(Math.random() * WORDS.length)] : CHARS[Math.floor(Math.random() * CHARS.length)],
+        size: isWord ? 9 + Math.random() * 6 : 10 + Math.random() * 11,
+        alpha: 0.09 + Math.random() * 0.26,
+        color: colorRoll < 0.06 ? ACCENTS[0] : colorRoll < 0.13 ? ACCENTS[1] : colorRoll < 0.20 ? ACCENTS[2] : '#ffffff',
         phase: Math.random() * Math.PI * 2,
-        speed: 0.25 + Math.random() * 0.35,
-        drift: 10 + Math.random() * 16
+        speed: 0.2 + Math.random() * 0.3,
+        drift: 8 + Math.random() * 14
       });
     }
   }
