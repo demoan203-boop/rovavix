@@ -11,6 +11,8 @@
   var canvas = document.getElementById('introCanvas');
   var ctx = canvas.getContext('2d');
   var enterBtn = document.getElementById('introEnterBtn');
+  var glow1 = document.getElementById('introGlow1');
+  var glow2 = document.getElementById('introGlow2');
   var aiLetterEls = Array.prototype.slice.call(document.querySelectorAll('.intro-ai-letter'));
   var letters = [];
 
@@ -73,6 +75,7 @@
 
   var targetX = W / 2, targetY = H / 2;
   var curX = targetX, curY = targetY;
+  var curX2 = targetX, curY2 = targetY;
   var idle = true;
   var t = 0;
   var raf;
@@ -105,6 +108,13 @@
     }
     curX += (targetX - curX) * 0.08;
     curY += (targetY - curY) * 0.08;
+    curX2 += (targetX - curX2) * 0.035;
+    curY2 += (targetY - curY2) * 0.035;
+
+    glow1.style.left = curX + 'px';
+    glow1.style.top = curY + 'px';
+    glow2.style.left = (W - curX2) + 'px';
+    glow2.style.top = curY2 + 'px';
 
     ctx.clearRect(0, 0, W, H);
 

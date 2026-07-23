@@ -10,6 +10,21 @@ body.intro-active { overflow: hidden; height: 100vh; }
 }
 .intro-overlay.intro-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
+.intro-glow {
+  position: absolute; width: 50vmax; height: 50vmax; border-radius: 50%;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(26,86,219,0.34) 0%, rgba(26,86,219,0.12) 35%, transparent 70%);
+  filter: blur(6px);
+  pointer-events: none; will-change: left, top; z-index: 0;
+}
+.intro-glow-2 {
+  position: absolute; width: 30vmax; height: 30vmax; border-radius: 50%;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(157,184,240,0.26) 0%, rgba(157,184,240,0.08) 40%, transparent 70%);
+  filter: blur(4px);
+  pointer-events: none; will-change: left, top; z-index: 0;
+}
+
 .intro-canvas {
   position: absolute; inset: 0; z-index: 1;
   pointer-events: none; display: block;
