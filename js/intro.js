@@ -16,8 +16,17 @@
   var letters = [];
   var enterCenter = { cx: 0, cy: 0, left: 0, top: 0, width: 1, height: 1 };
   var isBtnHover = false;
-  enterBtn.addEventListener('mouseenter', function () { isBtnHover = true; enterBtn.classList.add('is-hovering'); });
+  enterBtn.addEventListener('mouseenter', function () {
+    isBtnHover = true;
+    enterBtn.classList.add('is-hovering');
+    enterBtn.classList.remove('flash-once');
+    void enterBtn.offsetWidth;
+    enterBtn.classList.add('flash-once');
+  });
   enterBtn.addEventListener('mouseleave', function () { isBtnHover = false; enterBtn.classList.remove('is-hovering'); });
+  enterBtn.addEventListener('animationend', function (e) {
+    if (e.animationName === 'introEnterFlash') enterBtn.classList.remove('flash-once');
+  });
 
   body.classList.add('intro-active');
 
