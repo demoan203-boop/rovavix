@@ -10,8 +10,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/intro.css" />
 </head>
 <body>
+<div class="intro-overlay" id="introOverlay">
+  <div class="intro-grid"></div>
+  <div class="intro-glow" id="introGlow1"></div>
+  <div class="intro-glow-2" id="introGlow2"></div>
+  <a href="index.html" class="intro-logo"><img src="images/logo-icon.png" alt="ROVAVIX" />ROVAVIX.COM</a>
+  <div class="intro-center">
+    <div class="intro-ai">AI</div>
+    <button type="button" class="intro-enter" id="introEnterBtn">
+      Enter
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </button>
+  </div>
+</div>
 <nav>
   <a href="index.html" class="nav-logo"><img src="images/logo-icon.png" class="logo-r-icon" alt="R" /><span class="logo-text">OVAVI<span class="logo-accent">X</span></span></a>
   <ul class="nav-links">
@@ -177,5 +191,6 @@
 
 <script src="js/lang.js"></script>
 <script src="js/main.js"></script>
+<script src="js/intro.js"></script>
 </body>
 </html>
